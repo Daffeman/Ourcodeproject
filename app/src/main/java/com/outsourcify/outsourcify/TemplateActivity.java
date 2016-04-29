@@ -14,7 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-
+//zelin
 public class TemplateActivity extends AppCompatActivity {
 
     @Override
@@ -103,7 +103,7 @@ public class TemplateActivity extends AppCompatActivity {
     }
 
     public void busView(View view) {
-        Intent intent = new Intent(TemplateActivity.this, ConfirmationActivity.class);// Byt MainActivity2 till Marko och Eriks klass
+        Intent intent = new Intent(TemplateActivity.this, BusMenu.class);// Byt MainActivity2 till Marko och Eriks klass
         startActivity(intent);
 
     }
