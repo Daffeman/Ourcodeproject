@@ -103,7 +103,7 @@ public class TemplateActivity extends AppCompatActivity {
     }
 
     public void busView(View view) {
-        Intent intent = new Intent(TemplateActivity.this, ConfirmationActivity.class);// Byt MainActivity2 till Marko och Eriks klass
+        Intent intent = new Intent(TemplateActivity.this, BusMenu.class);// Byt MainActivity2 till Marko och Eriks klass
         startActivity(intent);
 
     }
