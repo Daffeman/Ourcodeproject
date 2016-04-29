@@ -9,7 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ConfirmationActivity extends AppCompatActivity {
-//Eckhoff 2
+//Eckhoff 2'
+    //Zohan
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
