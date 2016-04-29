@@ -1,8 +1,10 @@
 package com.outsourcify.outsourcify;
 
+import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -94,4 +96,38 @@ public class TemplateActivity extends AppCompatActivity {
 
  return;
  }
+    public void nextView(View view) {
+        Intent intent = new Intent(TemplateActivity.this, ConfirmationActivity.class);
+        startActivity(intent);
+
+    }
+
+    public void busView(View view) {
+        Intent intent = new Intent(TemplateActivity.this, ConfirmationActivity.class);// Byt MainActivity2 till Marko och Eriks klass
+        startActivity(intent);
+
+    }
+
+    private void confirmDialog() { // http://jymden.com/android-simple-confirm-dialog/
+        final Context context = this;
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+        builder
+                .setMessage("Are you sure?")
+                .setPositiveButton("Yes",  new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        Intent intent = new Intent(TemplateActivity.this, ConfirmationActivity.class);
+                        startActivity(intent);
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog,int id) {
+                        dialog.cancel();
+                    }
+                })
+                .show();
+    }
 }
