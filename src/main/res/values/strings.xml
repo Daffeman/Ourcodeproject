@@ -1,9 +1,11 @@
 <resources>
-    <string name="app_name">Outsourcify</string>
-
-    <string name="title_activity_confirmation">ConfirmationActivity</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
-    <string name="recommendedAction">Tack för din inrapportering, trafikledare hör av sig om det är nödvändigt.</string>
-    <string name="returnView">Återvänd till förstasidan</string>
+    <string name="app_name">Test_2</string>
+    <string name="action_settings">Settings</string>
+    <string name="Rubrik">5 vanliga fel</string>
+    <string name="Knapp1">Vanligt problem 1</string>
+    <string name="Knapp2">Vanligt problem 2</string>
+    <string name="Knapp3">Vanligt problem 3</string>
+    <string name="Knapp4">Vanligt problem 4</string>
+    <string name="Knapp5">Vanligt problem 5</string>
+    <string name="rubrik_2">Undernivå1</string>
 </resources>
