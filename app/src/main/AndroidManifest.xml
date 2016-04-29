@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ConfirmationActivity"></activity>
-    </application>
+        <activity android:name=".BusMenu"></activity>
 
+    </application>
 </manifest>

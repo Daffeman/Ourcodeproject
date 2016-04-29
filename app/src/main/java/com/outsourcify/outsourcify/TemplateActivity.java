@@ -69,7 +69,7 @@ public class TemplateActivity extends AppCompatActivity {
     }
 
     public void testConfirmation(View view){
-        Intent myIntent = new Intent(TemplateActivity.this, ConfirmationActivity.class);
+        Intent myIntent = new Intent(TemplateActivity.this, BusMenu.class);
         startActivity(myIntent);
     }
 
