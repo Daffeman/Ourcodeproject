@@ -1,6 +1,6 @@
 package com.outsourcify.outsourcify;
 
-import android.app.AlertDialog;
+//import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
