@@ -34,9 +34,9 @@ public class TemplateActivity extends AppCompatActivity {
                 case R.id.call_skype:
                     initiateSkypeUri(getApplicationContext(), "skype:daffeman?call");
                     break;
-                case R.id.confirmation_test:
+              /*  case R.id.confirmation_test:
                     testConfirmation(findViewById(R.id.confirmation_test));
-                    break;
+                    break;*/
             }
         }
     };
@@ -65,13 +65,12 @@ public class TemplateActivity extends AppCompatActivity {
         // handler can go away).
         myContext.startActivity(myIntent);
 
-        return;
     }
 
-    public void testConfirmation(View view){
+    /*public void testConfirmation(View view){
         Intent myIntent = new Intent(TemplateActivity.this, BusMenu.class);
         startActivity(myIntent);
-    }
+    }*/
 
 // Determine whether the Skype for Android client is installed on this device.
  public boolean isSkypeClientInstalled(Context myContext) {
@@ -94,7 +93,6 @@ public class TemplateActivity extends AppCompatActivity {
  myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
  myContext.startActivity(myIntent);
 
- return;
  }
     public void nextView(View view) {
         Intent intent = new Intent(TemplateActivity.this, ConfirmationActivity.class);
@@ -108,7 +106,7 @@ public class TemplateActivity extends AppCompatActivity {
 
     }
 
-    private void confirmDialog() { // http://jymden.com/android-simple-confirm-dialog/
+   /* private void confirmDialog() { // http://jymden.com/android-simple-confirm-dialog/
         final Context context = this;
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
@@ -129,5 +127,5 @@ public class TemplateActivity extends AppCompatActivity {
                     }
                 })
                 .show();
-    }
+    }*/
 }
