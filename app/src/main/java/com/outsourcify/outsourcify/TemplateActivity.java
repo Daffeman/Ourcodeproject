@@ -14,6 +14,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
+
 //zelin
 public class TemplateActivity extends AppCompatActivity {
 
@@ -44,6 +46,7 @@ public class TemplateActivity extends AppCompatActivity {
     /**
      * Initiate the actions encoded in the specified URI.
      */
+
     public void initiateSkypeUri(Context myContext, String mySkypeUri) {
 
         // Make sure the Skype for Android client is installed.
