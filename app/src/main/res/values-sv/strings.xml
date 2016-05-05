@@ -2,4 +2,15 @@
 <resources>
     <string name="app_name">Outsourcify</string>
     <string name="Knapp1">Vanligt problem 1</string>
+    <string name="call">Ring</string>
+    <string name="message_late">Du håller på att rapportera in en försening</string>
+    <string name="message_recharge">Du håller på att rapportera in ett problem med laddstationen</string>
+    <string name="message_seats">Du håller på att rapportera in ett platsproblem</string>
+    <string name="message_engine">Du håller på att rapportera in ett motorfel</string>
+    <string name="message_exterior">Du håller på att rapportera in en yttre skada</string>
+    <string name="message_heat">Du håller på att rapportera in ett klimatproblem</string>
+    <string name="message_ticket">Du håller på att rapportera in ett problem med biljettsystemet</string>
+    <string name="message_door">Du håller på att rapportera in ett problem med dörrarna</string>
+    <string name="message_other">Fyll i ditt problem</string>
+    <string name="message_call">Du håller på att ringa trafikledningen</string>
 </resources>
