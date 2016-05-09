@@ -70,6 +70,8 @@ public class ConfirmationActivity extends AppCompatActivity {
     private View.OnClickListener btnListener = new View.OnClickListener() {
         public void onClick(View v) {
             switch (v.getId()) {
+                default:
+                    break;
                 case R.id.returnButton:
                     returnHome(findViewById(R.id.returnButton));
                     break;
@@ -79,6 +81,7 @@ public class ConfirmationActivity extends AppCompatActivity {
                 case R.id.return_home:
                     returnHome(findViewById(R.id.return_home));
                     break;
+
             }
         }
     };

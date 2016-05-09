@@ -33,6 +33,8 @@ public class TemplateActivity extends AppCompatActivity {
     {
         public void onClick(View v) {
             switch(v.getId()) {
+                default:
+                    break;
                 case R.id.call_skype:
                     initiateSkypeUri(getApplicationContext(), "skype:daffeman?call");
                     break;
