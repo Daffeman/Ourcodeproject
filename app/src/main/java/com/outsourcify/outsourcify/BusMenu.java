@@ -21,7 +21,9 @@ public class BusMenu extends AppCompatActivity {
         setContentView(R.layout.busmenulayout);
 
 
+/*
         Button button = (Button) findViewById(R.id.button);
+*/
 
     }
 
