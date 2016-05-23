@@ -95,6 +95,7 @@ public class ConfirmationActivity extends AppCompatActivity {
         Log.i("Send email", "");
         String[] TO = {"jakkefaxx@gmail.com"};
         String[] CC = {""};
+        
         Intent emailIntent = new Intent(Intent.ACTION_SEND);
 
         emailIntent.setData(Uri.parse("mailto:"));
