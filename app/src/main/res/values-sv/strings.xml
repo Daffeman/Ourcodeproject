@@ -5,7 +5,7 @@
     <string name="call">Ring</string>
     <string name="message_late">Du håller på att rapportera in en försening</string>
     <string name="message_recharge">Du håller på att rapportera in ett problem med laddstationen</string>
-    <string name="message_seats">Du håller på att rapportera in ett platsproblem</string>
+    <string name="message_seats">Du håller på att rapportera att sittplatserna är slut</string>
     <string name="message_engine">Du håller på att rapportera in ett motorfel</string>
     <string name="message_exterior">Du håller på att rapportera in en yttre skada</string>
     <string name="message_heat">Du håller på att rapportera in ett klimatproblem</string>
@@ -13,4 +13,28 @@
     <string name="message_door">Du håller på att rapportera in ett problem med dörrarna</string>
     <string name="message_other">Fyll i ditt problem</string>
     <string name="message_call">Du håller på att ringa trafikledningen</string>
+    <string name="delay">Försening</string>
+    <string name="charge">Laddningsfel</string>
+    <string name="seating">Platsbrist</string>
+    <string name="engine">Motorfel</string>
+    <string name="exterior">Yttre skada</string>
+    <string name="heating">Klimatfel</string>
+    <string name="ticket">Biljettautomatsfel</string>
+    <string name="door">Dörrfel</string>
+    <string name="other">Övrigt fel</string>
+    <string name="traffic_control">Trafikledning</string>
+    <string name="blank">"  "</string>
+    <string name="late05">0-5</string>
+    <string name="late610">6-10</string>
+    <string name="late10">10+</string>
+    <string name="location_front">Fram</string>
+    <string name="location_mid">Mitten</string>
+    <string name="location_back">Bak</string>
+    <string name="door_cant_open">Går inte att öppna</string>
+    <string name="door_cant_close">Går inte att stänga</string>
+    <string name="heating_hot">För varmt</string>
+    <string name="heating_cold">För kallt</string>
+    <string name="charger_dont_attach">Kommer inte ner</string>
+    <string name="charger_dont_detach">Lossnar inte</string>
+    <string name="recommendedAction">Tack för din inrapportering! \n Trafikledare hör av sig om det är nödvändigt.</string>
 </resources>

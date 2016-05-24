@@ -42,11 +42,11 @@ public class ConfirmationActivity extends AppCompatActivity {
             if (extras == null) {
                 statusReport = " ";
             } else {
-                statusReport = extras.getString("Report Information");
+                statusReport = extras.getString(getString(R.string.report_info));
             }
 
         } else {
-            statusReport = (String) savedInstanceState.getSerializable("Report Information");
+            statusReport = (String) savedInstanceState.getSerializable(getString(R.string.report_info));
         }
 
 
@@ -59,32 +59,8 @@ public class ConfirmationActivity extends AppCompatActivity {
         CharSequence old = recommendedActionView.getText();
         recommendedActionView.setText(old + "\n" + statusReport);
 
-        Button btn1 = (Button) findViewById(R.id.returnButton);
-        btn1.setOnClickListener(btnListener);
 
     }
-
-    /**
-     * Onclick listener for handling clicks on the upper-most navigation.
-     */
-    private View.OnClickListener btnListener = new View.OnClickListener() {
-        public void onClick(View v) {
-            switch (v.getId()) {
-                default:
-                    break;
-                case R.id.returnButton:
-                    returnHome(findViewById(R.id.returnButton));
-                    break;
-                case R.id.previous_activity:
-                    previousActivity(findViewById(R.id.previous_activity));
-                    break;
-                case R.id.return_home:
-                    returnHome(findViewById(R.id.return_home));
-                    break;
-
-            }
-        }
-    };
 
     /**
      * Handles the intent for sending email with the proper content.

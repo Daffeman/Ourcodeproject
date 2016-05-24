@@ -12,14 +12,14 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.LayoutInflater;
-        import android.view.View;
-        import android.view.View.OnClickListener;
-        import android.view.ViewGroup;
-        import android.widget.BaseAdapter;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
-        import android.widget.TextView;
-        import android.widget.Toast;
+import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * CustomAdapter handles the on-click logic for the gridView in MainActivity.
@@ -28,16 +28,20 @@ import android.widget.ImageView;
  * @version 1.0
  */
 public class CustomAdapter extends BaseAdapter{
-    String [] timeChoices = {"0-5","6-10","10+"} ;
+
+    String [] timeChoices = {"0-5 minuter","6-10 minuter","10+ minuter"};
     String [] locationChoices = {"Fram","Mitten","Bak"};
-    String [] fullnessChoices = {"Nästan full","Överfull"};
+    String [] doorChoices = {"Går inte att öppna", "Går inte att stänga"};
+    String [] heatingChoices = {"För varmt","För kallt"};
+    String [] chargingChoices = {"Laddaren kommer inte ner","Laddaren lossnar inte"};
     String statusReport = "";
-    String [] result;
+    String statusReport2 = "";
+    int [] result;
     Context context;
     String text = "";
     int [] imageId;
     private static LayoutInflater inflater=null;
-    public CustomAdapter(MainActivity mainActivity, String[] prgmNameList, int[] prgmImages) {
+    public CustomAdapter(MainActivity mainActivity, int[] prgmNameList, int[] prgmImages) {
         result=prgmNameList;
         context=mainActivity;
         imageId=prgmImages;
@@ -143,60 +147,58 @@ public class CustomAdapter extends BaseAdapter{
      *      The position in the grid
      */
     public void showDialog(final int position){
-        final String problem = result[position];
+        final int problem = result[position];
         if(position == 0 ){
-        new AlertDialog.Builder(context)
-
-                .setTitle(problem)
-
-                .setItems(timeChoices, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        switch(which){
-                            case 0 :
-                                statusReport = timeChoices[0];
-                                break;
-                            case 1 :
-                                statusReport = timeChoices[1];
-                                break;
-                            case 2 :
-                                statusReport = timeChoices[2];
-                                break;
-                            default:
-                                break;
-
-                        }
-
-
-                        Toast.makeText(context, "Delayed by "+statusReport+" minutes", Toast.LENGTH_LONG).show();
-                        statusReport = " "+ problem+": "+statusReport+" minuter försenad";
-                        Intent myIntent = new Intent(context, ConfirmationActivity.class);
-                        myIntent.putExtra("Report Information","FelID: " + position + "\n Beskrivning: " +statusReport );
-                        context.startActivity(myIntent);
-                    }
-                })
-                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        // do nothing
-                    }
-                })
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .show();
-    }
-    else if (position == 2){
             new AlertDialog.Builder(context)
 
                     .setTitle(problem)
 
-                    .setItems(fullnessChoices, new DialogInterface.OnClickListener() {
+                    .setItems(timeChoices, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             switch(which){
                                 case 0 :
-                                    statusReport = fullnessChoices[0];
+                                    statusReport = timeChoices[0];
                                     break;
                                 case 1 :
-                                    statusReport = fullnessChoices[1];
+                                    statusReport = timeChoices[1];
+                                    break;
+                                case 2 :
+                                    statusReport = timeChoices[2];
+                                    break;
+                                default:
+                                    break;
+
+                            }
+
+                            statusReport = " "+ context.getString(problem)+": "+statusReport+" försenad";
+                            Intent myIntent = new Intent(context, ConfirmationActivity.class);
+                            myIntent.putExtra("Report Information","FelID: " + position + "\n Beskrivning: " +statusReport );
+                            context.startActivity(myIntent);
+                        }
+                    })
+                    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // do nothing
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+        }
+        else if (position == 1){
+            new AlertDialog.Builder(context)
+
+                    .setTitle(problem)
+
+                    .setItems(chargingChoices, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch(which){
+                                case 0 :
+                                    statusReport = chargingChoices[0];
+                                    break;
+                                case 1 :
+                                    statusReport = chargingChoices[1];
                                     break;
                                 default:
                                     break;
@@ -204,7 +206,7 @@ public class CustomAdapter extends BaseAdapter{
                             }
 
 
-                            statusReport = " "+ problem+": "+statusReport;
+                            statusReport = " "+ context.getString(problem)+": "+statusReport;
                             Intent myIntent = new Intent(context, ConfirmationActivity.class);
                             myIntent.putExtra("Report Information","FelID: " + position + "\n Beskrivning: "+ statusReport);
                             context.startActivity(myIntent);
@@ -219,7 +221,66 @@ public class CustomAdapter extends BaseAdapter{
                     .show();
 
         }
-        else if (position == 6 || position == 7){
+        else if (position == 2){
+            new AlertDialog.Builder(context)
+
+                    .setTitle(problem)
+                    .setMessage(getMessage(position))
+                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            statusReport = " "+ context.getString(problem)+": "+statusReport;
+                            Intent myIntent = new Intent(context, ConfirmationActivity.class);
+                            myIntent.putExtra("Report Information","FelID: " + position + "\n Beskrivning: "+ context.getString(problem) + ": Är slut");
+                            context.startActivity(myIntent);
+                        }
+                    })
+
+                    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // do nothing
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+
+        }
+        else if (position == 5){
+            new AlertDialog.Builder(context)
+
+                    .setTitle(problem)
+
+                    .setItems(heatingChoices, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch(which){
+                                case 0 :
+                                    statusReport = heatingChoices[0];
+                                    break;
+                                case 1 :
+                                    statusReport = heatingChoices[1];
+                                    break;
+                                default:
+                                    break;
+
+                            }
+
+
+                            statusReport = " "+ context.getString(problem)+": "+statusReport;
+                            Intent myIntent = new Intent(context, ConfirmationActivity.class);
+                            myIntent.putExtra("Report Information","FelID: " + position + "\n Beskrivning: "+ statusReport);
+                            context.startActivity(myIntent);
+                        }
+                    })
+                    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // do nothing
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+
+        }
+        else if (position == 6){
             new AlertDialog.Builder(context)
 
                     .setTitle(problem)
@@ -227,14 +288,14 @@ public class CustomAdapter extends BaseAdapter{
                     .setItems(locationChoices, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            switch(which){
-                                case 0 :
+                            switch (which) {
+                                case 0:
                                     statusReport = locationChoices[0];
                                     break;
-                                case 1 :
+                                case 1:
                                     statusReport = locationChoices[1];
                                     break;
-                                case 2 :
+                                case 2:
                                     statusReport = locationChoices[2];
                                     break;
                                 default:
@@ -242,10 +303,9 @@ public class CustomAdapter extends BaseAdapter{
 
                             }
 
-
-                            statusReport = " "+ problem+": "+statusReport;
+                            statusReport = " " + context.getString(problem) + ": " + statusReport;
                             Intent myIntent = new Intent(context, ConfirmationActivity.class);
-                            myIntent.putExtra("Report Information","FelID: " + position + "\n Beskrivning: "+ statusReport);
+                            myIntent.putExtra("Report Information", "FelID: " + position + "\n Beskrivning: " + statusReport);
                             context.startActivity(myIntent);
                         }
                     })
@@ -257,6 +317,79 @@ public class CustomAdapter extends BaseAdapter{
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .show();
         }
+
+        else if (position == 7){
+            new AlertDialog.Builder(context)
+
+                    .setTitle(problem)
+
+                    .setItems(locationChoices, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which) {
+                                case 0:
+                                    statusReport = locationChoices[0];
+                                    break;
+                                case 1:
+                                    statusReport = locationChoices[1];
+                                    break;
+                                case 2:
+                                    statusReport = locationChoices[2];
+                                    break;
+                                default:
+                                    break;
+
+                            }
+
+                            statusReport = " " + context.getString(problem) + ": " + statusReport;
+                            new AlertDialog.Builder(context)
+
+                                    .setTitle(problem)
+
+                                    .setItems(doorChoices, new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            switch (which) {
+                                                case 0:
+                                                    statusReport2 = doorChoices[0];
+                                                    break;
+                                                case 1:
+                                                    statusReport2 = doorChoices[1];
+                                                    break;
+                                                default:
+                                                    break;
+
+                                            }
+
+                                            statusReport = statusReport + ": " + statusReport2;
+                                            Intent myIntent = new Intent(context, ConfirmationActivity.class);
+                                            myIntent.putExtra("Report Information", "FelID: " + position + "\n Beskrivning: " + statusReport);
+                                            context.startActivity(myIntent);
+                                        }
+
+
+                                    })
+                                    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            // do nothing
+                                        }
+                                    })
+                                    .setIcon(android.R.drawable.ic_dialog_alert)
+                                    .show();
+
+                        }
+                    })
+                    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // do nothing
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+        }
+
+
+
         else if (position == 8){
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             final EditText input = new EditText(context);
@@ -268,7 +401,7 @@ public class CustomAdapter extends BaseAdapter{
                     .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             text = input.getText().toString();
-                            statusReport = "" + problem +": " + text;
+                            statusReport = "" + context.getString(problem) +": " + text;
                             Intent myIntent = new Intent(context, ConfirmationActivity.class);
                             myIntent.putExtra("Report Information","FelID: " + position + "\nBeskrivning: "+ statusReport);
                             context.startActivity(myIntent);
@@ -308,15 +441,16 @@ public class CustomAdapter extends BaseAdapter{
         }
         else{
             new AlertDialog.Builder(context)
+
                     .setTitle(result[position])
                     .setMessage(getMessage(position))
                     .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent myIntent = new Intent(context, ConfirmationActivity.class);
-                        myIntent.putExtra("Report Information","FelID: " + position + "\n Beskrivning: "+ problem);
-                        context.startActivity(myIntent);
-                    }
-                })
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent myIntent = new Intent(context, ConfirmationActivity.class);
+                            myIntent.putExtra("Report Information","FelID: " + position + "\n Beskrivning: "+ context.getString(problem));
+                            context.startActivity(myIntent);
+                        }
+                    })
                     .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             // do nothing

@@ -24,8 +24,8 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 @RunWith(AndroidJUnit4.class)
 public class EspressoTest {
         @Rule
-        public ActivityTestRule<TemplateActivity> mActivityRule =
-                new ActivityTestRule<>(TemplateActivity.class);
+        public ActivityTestRule<MainActivity> mActivityRule =
+                new ActivityTestRule<>(MainActivity.class);
 
         @Test
         public void buttonShouldOpenSkype(){

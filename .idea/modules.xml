@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Ourcodeproject.iml" filepath="$PROJECT_DIR$/Ourcodeproject.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Outsourcify.iml" filepath="$PROJECT_DIR$/Outsourcify.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

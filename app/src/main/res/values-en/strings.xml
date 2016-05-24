@@ -3,4 +3,10 @@
     <string name="app_name">Outsourcify</string>
     <string name="Knapp1">Englishsss</string>
     <string name="Knapp2">Englishsss</string>
+    <string name="call">Call</string>
+    <string name="report_info">Report Information</string>
+    <string name="blank">"  "</string>
+    <string name="late05">0-5</string>
+    <string name="late610">6-10</string>
+    <string name="late10">10+</string>
 </resources>
