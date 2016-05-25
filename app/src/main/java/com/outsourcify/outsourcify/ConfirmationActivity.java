@@ -119,7 +119,7 @@ public class ConfirmationActivity extends AppCompatActivity {
                 Toast.makeText(ConfirmationActivity.this, "GPS är " + BusLocationListener.latitude, Toast.LENGTH_SHORT).show();
 
                 coordinates="Latitud: " + BusLocationListener.latitude + ", ";
-                coordinates= coordinates + "Longitud:- " + BusLocationListener.longitude + "";
+                coordinates= coordinates + "Longitud: " + BusLocationListener.longitude + "";
             }
             else
             {
