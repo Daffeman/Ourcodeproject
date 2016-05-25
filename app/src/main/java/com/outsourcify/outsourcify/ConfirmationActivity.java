@@ -114,14 +114,18 @@ public class ConfirmationActivity extends AppCompatActivity {
         mlocManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, mlocListener);
 
         if (mlocManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-            if(BusLocationListener.latitude>0)
+            if(BusLocationListener.latitude!=0)
             {
-                coordinates="Latitud:- " + BusLocationListener.latitude + "\n";
-                coordinates= coordinates + "Longitud:- " + BusLocationListener.longitude + "\n";;
+                Toast.makeText(ConfirmationActivity.this, "GPS är " + BusLocationListener.latitude, Toast.LENGTH_SHORT).show();
+
+                coordinates="Latitud: " + BusLocationListener.latitude + ", ";
+                coordinates= coordinates + "Longitud:- " + BusLocationListener.longitude + "";
             }
             else
             {
                 Toast.makeText(ConfirmationActivity.this, "GPS-position kan inte hittas.", Toast.LENGTH_SHORT).show();
+                coordinates="Latitud: 57.707225, ";
+                coordinates= coordinates + "Longitud: 11.93921";
             }
         } else {
             Toast.makeText(ConfirmationActivity.this, "GPS är inte aktiverad.", Toast.LENGTH_SHORT).show();
@@ -144,7 +148,7 @@ public class ConfirmationActivity extends AppCompatActivity {
         int busId = rand.nextInt(11)+2030;
         int routeId = 1797;
         int employeeId = rand.nextInt(1400)+500000;
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd HH:mm");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         Date date = new Date();
         String reportDate = dateFormat.format(date);
 
