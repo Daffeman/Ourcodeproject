@@ -30,6 +30,7 @@ import java.util.Random;
 public class ConfirmationActivity extends AppCompatActivity {
     String statusReport;
     String gpsCoordinates;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,14 +63,14 @@ public class ConfirmationActivity extends AppCompatActivity {
 
     /**
      * Handles the intent for sending email with the proper content.
-     * @param view
-     *      Current view
+     *
+     * @param view Current view
      */
     protected void sendMail(View view) {
         Log.i("Send email", "");
         String[] TO = {"jakkefaxx@gmail.com"};
         String[] CC = {""};
-        
+
         Intent emailIntent = new Intent(Intent.ACTION_SEND);
 
         emailIntent.setData(Uri.parse("mailto:"));
@@ -90,8 +91,8 @@ public class ConfirmationActivity extends AppCompatActivity {
 
     /**
      * Gets GPS-location from BusLocationListener, checks if coordinates are avaliable and then returns the information in a sring.
-     * @return
-     *      The coordinates.
+     *
+     * @return The coordinates.
      */
     public String getGPSLocation() {
         String coordinates = "";
@@ -112,19 +113,16 @@ public class ConfirmationActivity extends AppCompatActivity {
         mlocManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, mlocListener);
 
         if (mlocManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-            if(BusLocationListener.latitude!=0)
-            {
-                coordinates="Latitud: " + BusLocationListener.latitude + ", ";
-                coordinates= coordinates + "Longitud: " + BusLocationListener.longitude + "";
-            }
-            else
-            {
+            if (BusLocationListener.latitude != 0) {
+                coordinates = "Latitud: " + BusLocationListener.latitude + ", ";
+                coordinates = coordinates + "Longitud: " + BusLocationListener.longitude + "";
+            } else {
                 Toast.makeText(ConfirmationActivity.this, "GPS-position kan inte hittas.", Toast.LENGTH_SHORT).show();
-                coordinates="GPS-position kan inte hittas.";
+                coordinates = "GPS-position kan inte hittas.";
             }
         } else {
             Toast.makeText(ConfirmationActivity.this, "GPS är inte aktiverad.", Toast.LENGTH_SHORT).show();
-            coordinates="GPS är inte aktiverad.";
+            coordinates = "GPS är inte aktiverad.";
         }
         return coordinates;
 
@@ -132,43 +130,34 @@ public class ConfirmationActivity extends AppCompatActivity {
 
     /**
      * Functionality for adding additional information for complete error reporting.
-     * @param oldInfo
-     *      The string to expand information on.
-     * @return
-     *      The string with additional information.
+     *
+     * @param oldInfo The string to expand information on.
+     * @return The string with additional information.
      */
-    public String additionalInformation(String oldInfo){
+    public String additionalInformation(String oldInfo) {
         String newInfo = "";
         Random rand = new Random();
-        int messageId = rand.nextInt(89999)+10000;
-        int busId = rand.nextInt(11)+2030;
+        int messageId = rand.nextInt(89999) + 10000;
+        int busId = rand.nextInt(11) + 2030;
         int routeId = 1797;
-        int employeeId = rand.nextInt(1400)+500000;
+        int employeeId = rand.nextInt(1400) + 500000;
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         Date date = new Date();
         String reportDate = dateFormat.format(date);
 
-        newInfo = "ID: "+ Integer.toString(messageId)+"\nPlats: "+ gpsCoordinates+"\nDatum och tid: "+ reportDate+ "\nRapporterad av : "
-                + Integer.toString(employeeId)+"\nOmlopp: "+Integer.toString(routeId)+"\nBussID: "+Integer.toString(busId)+ "\n"  + oldInfo;
+        newInfo = "ID: " + Integer.toString(messageId) + "\nPlats: " + gpsCoordinates + "\nDatum och tid: " + reportDate + "\nRapporterad av : "
+                + Integer.toString(employeeId) + "\nOmlopp: " + Integer.toString(routeId) + "\nBussID: " + Integer.toString(busId) + "\n" + oldInfo;
         return newInfo;
     }
 
     /**
      * Changes view to MainActivity
-     * @param view
-     *      Current view
+     *
+     * @param view Current view
      */
-    public void returnHome(View view){
+    public void returnHome(View view) {
         Intent myIntent = new Intent(ConfirmationActivity.this, MainActivity.class);
         startActivity(myIntent);
     }
 
-    /**
-     * Changes view to previous view
-     * @param view
-     *      Current view
-     */
-    public void previousActivity(View view){
-        finish();
-    }
 }

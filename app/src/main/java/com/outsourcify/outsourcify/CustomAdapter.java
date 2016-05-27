@@ -170,7 +170,7 @@ public class CustomAdapter extends BaseAdapter{
 
                             statusReport = " "+ context.getString(problem)+": "+statusReport+" försenad";
                             Intent myIntent = new Intent(context, ConfirmationActivity.class);
-                            myIntent.putExtra("Report Information","FelID: " + position + "\n Beskrivning: " +statusReport );
+                            myIntent.putExtra("Report Information","FelID: " + position + "\nBeskrivning: " +statusReport );
                             context.startActivity(myIntent);
                         }
                     })
@@ -205,7 +205,7 @@ public class CustomAdapter extends BaseAdapter{
 
                             statusReport = " "+ context.getString(problem)+": "+statusReport;
                             Intent myIntent = new Intent(context, ConfirmationActivity.class);
-                            myIntent.putExtra("Report Information","FelID: " + position + "\n Beskrivning: "+ statusReport);
+                            myIntent.putExtra("Report Information","FelID: " + position + "\nBeskrivning: "+ statusReport);
                             context.startActivity(myIntent);
                         }
                     })
@@ -227,7 +227,7 @@ public class CustomAdapter extends BaseAdapter{
                         public void onClick(DialogInterface dialog, int which) {
                             statusReport = " "+ context.getString(problem)+": "+statusReport;
                             Intent myIntent = new Intent(context, ConfirmationActivity.class);
-                            myIntent.putExtra("Report Information","FelID: " + position + "\n Beskrivning: "+ context.getString(problem) + ": Är slut");
+                            myIntent.putExtra("Report Information","FelID: " + position + "\nBeskrivning: "+ context.getString(problem) + ": Är slut");
                             context.startActivity(myIntent);
                         }
                     })
@@ -264,7 +264,7 @@ public class CustomAdapter extends BaseAdapter{
 
                             statusReport = " "+ context.getString(problem)+": "+statusReport;
                             Intent myIntent = new Intent(context, ConfirmationActivity.class);
-                            myIntent.putExtra("Report Information","FelID: " + position + "\n Beskrivning: "+ statusReport);
+                            myIntent.putExtra("Report Information","FelID: " + position + "\nBeskrivning: "+ statusReport);
                             context.startActivity(myIntent);
                         }
                     })
@@ -302,7 +302,7 @@ public class CustomAdapter extends BaseAdapter{
 
                             statusReport = " " + context.getString(problem) + ": " + statusReport;
                             Intent myIntent = new Intent(context, ConfirmationActivity.class);
-                            myIntent.putExtra("Report Information", "FelID: " + position + "\n Beskrivning: " + statusReport);
+                            myIntent.putExtra("Report Information", "FelID: " + position + "\nBeskrivning: " + statusReport);
                             context.startActivity(myIntent);
                         }
                     })
@@ -360,7 +360,7 @@ public class CustomAdapter extends BaseAdapter{
 
                                             statusReport = statusReport + ": " + statusReport2;
                                             Intent myIntent = new Intent(context, ConfirmationActivity.class);
-                                            myIntent.putExtra("Report Information", "FelID: " + position + "\n Beskrivning: " + statusReport);
+                                            myIntent.putExtra("Report Information", "FelID: " + position + "\nBeskrivning: " + statusReport);
                                             context.startActivity(myIntent);
                                         }
 
@@ -444,7 +444,7 @@ public class CustomAdapter extends BaseAdapter{
                     .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Intent myIntent = new Intent(context, ConfirmationActivity.class);
-                            myIntent.putExtra("Report Information","FelID: " + position + "\n Beskrivning: "+ context.getString(problem));
+                            myIntent.putExtra("Report Information","FelID: " + position + "\nBeskrivning: "+ context.getString(problem));
                             context.startActivity(myIntent);
                         }
                     })

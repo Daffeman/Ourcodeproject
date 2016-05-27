@@ -1,4 +1,9 @@
-package com.example.tegbrant.test_2;
+package com.outsourcify.outsourcify;
+
+
+
+
+
 
 import org.junit.Test;
 
@@ -9,7 +14,9 @@ import static org.junit.Assert.*;
  */
 public class ExampleUnitTest {
     @Test
-    public void addition_isCorrect() throws Exception {
+    public void reportInfo_isCorrect() throws Exception {
+
+
         assertEquals(4, 2 + 2);
     }
 }
