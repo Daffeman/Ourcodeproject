@@ -87,7 +87,7 @@ public class CustomAdapter extends BaseAdapter{
     /**
      * A class for holding TextView and ImageView
      */
-    public class Holder
+    public static class Holder
     {
         TextView tv;
         ImageView img;
