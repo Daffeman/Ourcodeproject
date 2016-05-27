@@ -2,14 +2,12 @@ package com.outsourcify.outsourcify;
 
 
 import android.app.AlertDialog;
-import android.app.DialogFragment;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.Bundle;
 import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +17,6 @@ import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 /**
  * CustomAdapter handles the on-click logic for the gridView in MainActivity.
@@ -40,11 +37,11 @@ public class CustomAdapter extends BaseAdapter{
     Context context;
     String text = "";
     int [] imageId;
-    private static LayoutInflater inflater=null;
+    private LayoutInflater inflater=null;
     public CustomAdapter(MainActivity mainActivity, int[] prgmNameList, int[] prgmImages) {
-        result=prgmNameList;
+        result= prgmNameList.clone();
         context=mainActivity;
-        imageId=prgmImages;
+        imageId=prgmImages.clone();
         inflater = ( LayoutInflater )context.
                 getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 

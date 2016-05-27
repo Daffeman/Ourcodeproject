@@ -12,11 +12,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -116,19 +114,17 @@ public class ConfirmationActivity extends AppCompatActivity {
         if (mlocManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
             if(BusLocationListener.latitude!=0)
             {
-                Toast.makeText(ConfirmationActivity.this, "GPS är " + BusLocationListener.latitude, Toast.LENGTH_SHORT).show();
-
                 coordinates="Latitud: " + BusLocationListener.latitude + ", ";
                 coordinates= coordinates + "Longitud: " + BusLocationListener.longitude + "";
             }
             else
             {
                 Toast.makeText(ConfirmationActivity.this, "GPS-position kan inte hittas.", Toast.LENGTH_SHORT).show();
-                coordinates="Latitud: 57.707225, ";
-                coordinates= coordinates + "Longitud: 11.93921";
+                coordinates="GPS-position kan inte hittas.";
             }
         } else {
             Toast.makeText(ConfirmationActivity.this, "GPS är inte aktiverad.", Toast.LENGTH_SHORT).show();
+            coordinates="GPS är inte aktiverad.";
         }
         return coordinates;
 
