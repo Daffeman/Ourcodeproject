@@ -42,11 +42,11 @@ public class ConfirmationActivity extends AppCompatActivity {
             if (extras == null) {
                 statusReport = " ";
             } else {
-                statusReport = extras.getString("Report Information");
+                statusReport = extras.getString(getString(R.string.report_info));
             }
 
         } else {
-            statusReport = (String) savedInstanceState.getSerializable("Report Information");
+            statusReport = (String) savedInstanceState.getSerializable(getString(R.string.report_info));
         }
 
 
@@ -59,32 +59,8 @@ public class ConfirmationActivity extends AppCompatActivity {
         CharSequence old = recommendedActionView.getText();
         recommendedActionView.setText(old + "\n" + statusReport);
 
-        Button btn1 = (Button) findViewById(R.id.returnButton);
-        btn1.setOnClickListener(btnListener);
 
     }
-
-    /**
-     * Onclick listener for handling clicks on the upper-most navigation.
-     */
-    private View.OnClickListener btnListener = new View.OnClickListener() {
-        public void onClick(View v) {
-            switch (v.getId()) {
-                default:
-                    break;
-                case R.id.returnButton:
-                    returnHome(findViewById(R.id.returnButton));
-                    break;
-                case R.id.previous_activity:
-                    previousActivity(findViewById(R.id.previous_activity));
-                    break;
-                case R.id.return_home:
-                    returnHome(findViewById(R.id.return_home));
-                    break;
-
-            }
-        }
-    };
 
     /**
      * Handles the intent for sending email with the proper content.
@@ -95,6 +71,7 @@ public class ConfirmationActivity extends AppCompatActivity {
         Log.i("Send email", "");
         String[] TO = {"jakkefaxx@gmail.com"};
         String[] CC = {""};
+        
         Intent emailIntent = new Intent(Intent.ACTION_SEND);
 
         emailIntent.setData(Uri.parse("mailto:"));
@@ -137,14 +114,18 @@ public class ConfirmationActivity extends AppCompatActivity {
         mlocManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, mlocListener);
 
         if (mlocManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-            if(BusLocationListener.latitude>0)
+            if(BusLocationListener.latitude!=0)
             {
-                coordinates="Latitud:- " + BusLocationListener.latitude + "\n";
-                coordinates= coordinates + "Longitud:- " + BusLocationListener.longitude + "\n";;
+                Toast.makeText(ConfirmationActivity.this, "GPS är " + BusLocationListener.latitude, Toast.LENGTH_SHORT).show();
+
+                coordinates="Latitud: " + BusLocationListener.latitude + ", ";
+                coordinates= coordinates + "Longitud: " + BusLocationListener.longitude + "";
             }
             else
             {
                 Toast.makeText(ConfirmationActivity.this, "GPS-position kan inte hittas.", Toast.LENGTH_SHORT).show();
+                coordinates="Latitud: 57.707225, ";
+                coordinates= coordinates + "Longitud: 11.93921";
             }
         } else {
             Toast.makeText(ConfirmationActivity.this, "GPS är inte aktiverad.", Toast.LENGTH_SHORT).show();
@@ -167,7 +148,7 @@ public class ConfirmationActivity extends AppCompatActivity {
         int busId = rand.nextInt(11)+2030;
         int routeId = 1797;
         int employeeId = rand.nextInt(1400)+500000;
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd HH:mm");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         Date date = new Date();
         String reportDate = dateFormat.format(date);
 
