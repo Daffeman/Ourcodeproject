@@ -9,7 +9,7 @@ package com.outsourcify.outsourcify;
  * @author Ratan from http://webdesignergeeks.com/
  * @version 1.0
  */
-    public class BusLocationListener implements LocationListener {
+    class BusLocationListener implements LocationListener {
 
         public static double latitude;
         public static double longitude;

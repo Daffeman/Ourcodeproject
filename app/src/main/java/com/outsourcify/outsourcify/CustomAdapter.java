@@ -2,14 +2,12 @@ package com.outsourcify.outsourcify;
 
 
 import android.app.AlertDialog;
-import android.app.DialogFragment;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.Bundle;
 import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +17,6 @@ import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 /**
  * CustomAdapter handles the on-click logic for the gridView in MainActivity.
@@ -40,11 +37,11 @@ public class CustomAdapter extends BaseAdapter{
     Context context;
     String text = "";
     int [] imageId;
-    private static LayoutInflater inflater=null;
+    private LayoutInflater inflater=null;
     public CustomAdapter(MainActivity mainActivity, int[] prgmNameList, int[] prgmImages) {
-        result=prgmNameList;
+        result= prgmNameList.clone();
         context=mainActivity;
-        imageId=prgmImages;
+        imageId=prgmImages.clone();
         inflater = ( LayoutInflater )context.
                 getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
@@ -87,7 +84,7 @@ public class CustomAdapter extends BaseAdapter{
     /**
      * A class for holding TextView and ImageView
      */
-    public class Holder
+    public static class Holder
     {
         TextView tv;
         ImageView img;
@@ -173,7 +170,7 @@ public class CustomAdapter extends BaseAdapter{
 
                             statusReport = " "+ context.getString(problem)+": "+statusReport+" försenad";
                             Intent myIntent = new Intent(context, ConfirmationActivity.class);
-                            myIntent.putExtra("Report Information","FelID: " + position + "\n Beskrivning: " +statusReport );
+                            myIntent.putExtra("Report Information","FelID: " + position + "\nBeskrivning: " +statusReport );
                             context.startActivity(myIntent);
                         }
                     })
@@ -208,7 +205,7 @@ public class CustomAdapter extends BaseAdapter{
 
                             statusReport = " "+ context.getString(problem)+": "+statusReport;
                             Intent myIntent = new Intent(context, ConfirmationActivity.class);
-                            myIntent.putExtra("Report Information","FelID: " + position + "\n Beskrivning: "+ statusReport);
+                            myIntent.putExtra("Report Information","FelID: " + position + "\nBeskrivning: "+ statusReport);
                             context.startActivity(myIntent);
                         }
                     })
@@ -230,7 +227,7 @@ public class CustomAdapter extends BaseAdapter{
                         public void onClick(DialogInterface dialog, int which) {
                             statusReport = " "+ context.getString(problem)+": "+statusReport;
                             Intent myIntent = new Intent(context, ConfirmationActivity.class);
-                            myIntent.putExtra("Report Information","FelID: " + position + "\n Beskrivning: "+ context.getString(problem) + ": Är slut");
+                            myIntent.putExtra("Report Information","FelID: " + position + "\nBeskrivning: "+ context.getString(problem) + ": Är slut");
                             context.startActivity(myIntent);
                         }
                     })
@@ -267,7 +264,7 @@ public class CustomAdapter extends BaseAdapter{
 
                             statusReport = " "+ context.getString(problem)+": "+statusReport;
                             Intent myIntent = new Intent(context, ConfirmationActivity.class);
-                            myIntent.putExtra("Report Information","FelID: " + position + "\n Beskrivning: "+ statusReport);
+                            myIntent.putExtra("Report Information","FelID: " + position + "\nBeskrivning: "+ statusReport);
                             context.startActivity(myIntent);
                         }
                     })
@@ -305,7 +302,7 @@ public class CustomAdapter extends BaseAdapter{
 
                             statusReport = " " + context.getString(problem) + ": " + statusReport;
                             Intent myIntent = new Intent(context, ConfirmationActivity.class);
-                            myIntent.putExtra("Report Information", "FelID: " + position + "\n Beskrivning: " + statusReport);
+                            myIntent.putExtra("Report Information", "FelID: " + position + "\nBeskrivning: " + statusReport);
                             context.startActivity(myIntent);
                         }
                     })
@@ -363,7 +360,7 @@ public class CustomAdapter extends BaseAdapter{
 
                                             statusReport = statusReport + ": " + statusReport2;
                                             Intent myIntent = new Intent(context, ConfirmationActivity.class);
-                                            myIntent.putExtra("Report Information", "FelID: " + position + "\n Beskrivning: " + statusReport);
+                                            myIntent.putExtra("Report Information", "FelID: " + position + "\nBeskrivning: " + statusReport);
                                             context.startActivity(myIntent);
                                         }
 
@@ -447,7 +444,7 @@ public class CustomAdapter extends BaseAdapter{
                     .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Intent myIntent = new Intent(context, ConfirmationActivity.class);
-                            myIntent.putExtra("Report Information","FelID: " + position + "\n Beskrivning: "+ context.getString(problem));
+                            myIntent.putExtra("Report Information","FelID: " + position + "\nBeskrivning: "+ context.getString(problem));
                             context.startActivity(myIntent);
                         }
                     })
