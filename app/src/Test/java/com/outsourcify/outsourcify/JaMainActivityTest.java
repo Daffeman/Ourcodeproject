@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 /**
  * Created by Andreas Eckhoff on 27/05/2016.
  */
-public class MainActivityTest {
+public class JaMainActivityTest {
 
     private MainActivity mMainActivity;
     @Before
