@@ -145,7 +145,7 @@ public class ConfirmationActivity extends AppCompatActivity {
         Date date = new Date();
         String reportDate = dateFormat.format(date);
 
-        newInfo = "ID: " + Integer.toString(messageId) + "\nPlats: " + gpsCoordinates + "\nDatum och tid: " + reportDate + "\nRapporterad av : "
+        newInfo = "ID: " + Integer.toString(messageId) + "\nPlats: " + gpsCoordinates + "\nDatum och tid: " + reportDate + "\nRapporterad av: "
                 + Integer.toString(employeeId) + "\nOmlopp: " + Integer.toString(routeId) + "\nBussID: " + Integer.toString(busId) + "\n" + oldInfo;
         return newInfo;
     }
