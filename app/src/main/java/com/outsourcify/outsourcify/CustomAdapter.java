@@ -227,7 +227,7 @@ public class CustomAdapter extends BaseAdapter{
                         public void onClick(DialogInterface dialog, int which) {
                             statusReport = " "+ context.getString(problem)+": "+statusReport;
                             Intent myIntent = new Intent(context, ConfirmationActivity.class);
-                            myIntent.putExtra("Report Information","FelID: " + position + "\nBeskrivning: "+ context.getString(problem) + ": Är slut");
+                            myIntent.putExtra("Report Information","FelID: " + position + "\nBeskrivning: "+ context.getString(problem));
                             context.startActivity(myIntent);
                         }
                     })
