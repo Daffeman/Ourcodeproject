@@ -1,31 +1,31 @@
 Docs<br />
-    •D1
-        ◦D1A
-            ◾Lego
-        ◦D1B
-            ◾Vision
-            ◾Product Backlog
-            ◾Social Contract
-    •D2
-        ◦Half time
-    •D3
-        ◦APK file
-        ◦Vision v2
-        ◦Feedback from customers
-    •D4
-        ◦Prototype
-            ◾FindBugs
-            ◾Tests
-                •Unit tests
-                •Integration / system tests
-                •Acceptance tests
-            ◾Design rationale
-            ◾Overview
-            ◾User stories
-            ◾Burn-down chart
-        ◦Reflection report
-        ◦Sprint backlogs
-        ◦Definition of Done
+    •D1<br />
+        ◦D1A<br />
+            ◾Lego<br />
+        ◦D1B<br />
+            ◾Vision<br />
+            ◾Product Backlog<br />
+            ◾Social Contract<br />
+    •D2<br />
+        ◦Half time<br />
+    •D3<br />
+        ◦APK file<br />
+        ◦Vision v2<br />
+        ◦Feedback from customers<br />
+    •D4<br />
+        ◦Prototype<br />
+            ◾FindBugs<br />
+            ◾Tests<br />
+                •Unit tests<br />
+                •Integration / system tests<br />
+                •Acceptance tests<br />
+            ◾Design rationale<br />
+            ◾Overview<br />
+            ◾User stories<br />
+            ◾Burn-down chart<br />
+        ◦Reflection report<br />
+        ◦Sprint backlogs<br />
+        ◦Definition of Done<br />
         ◦Comments to Gitinspector
 
 
