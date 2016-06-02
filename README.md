@@ -1,7 +1,7 @@
 #Outsourcify
 Nedan följer strukturen för samtliga deliverables. Dessa är strukturerade under D1, D2, D3 och D4. <br />
 ##D1<br />
-####D1A<br />
+&nbsp;&nbsp;&nbsp;####D1A<br />
 ######Lego<br />
 ####D1B<br />
 ######Vision<br />
