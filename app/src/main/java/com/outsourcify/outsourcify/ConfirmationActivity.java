@@ -110,6 +110,7 @@ public class ConfirmationActivity extends AppCompatActivity {
             // for ActivityCompat#requestPermissions for more details.
             return "";
         }
+        if (mlocManager.getAllProviders().contains(LocationManager.GPS_PROVIDER))
         mlocManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, mlocListener);
 
         if (mlocManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
