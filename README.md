@@ -27,6 +27,7 @@ Nedan följer strukturen för samtliga deliverables. Dessa är strukturerade und
 ####&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reflection report<br />
 ####&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sprint backlogs<br />
 ####&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Definition of Done<br />
+####&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GitInspectorResult<br />
 ####&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comments to Gitinspector
 
 
