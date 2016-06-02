@@ -21,7 +21,7 @@ Docs
                 •Acceptance tests
             ◾Design rationale
             ◾Overview
-            ◾User stories
+            ◾User storie
             ◾Burn-down chart
         ◦Reflection report
         ◦Sprint backlogs
