@@ -2,17 +2,17 @@ Docs<br />
 ##D1<br />
 ####D1A<br />
 ######Lego<br />
-        ####D1B<br />
+####D1B<br />
 ######Vision<br />
 ######Product Backlog<br />
 ######Social Contract<br />
-            ##D2<br />
-        ####Half time<br />
-    ##D3<br />
+##D2<br />
+####Half time<br />
+##D3<br />
 ####APK file<br />
 ####Vision v2<br />
 ####Feedback from customers<br />
-    ##D4<br />
+##D4<br />
 ####Prototype<br />
 ######FindBugs<br />
 ######Tests<br />
