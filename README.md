@@ -1,4 +1,4 @@
-Docs
+Docs__
     •D1
         ◦D1A
             ◾Lego
@@ -21,7 +21,7 @@ Docs
                 •Acceptance tests
             ◾Design rationale
             ◾Overview
-            ◾User storie
+            ◾User stories
             ◾Burn-down chart
         ◦Reflection report
         ◦Sprint backlogs
